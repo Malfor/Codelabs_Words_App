@@ -26,7 +26,15 @@ class WordListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
-    private val letterId = activity?.intent?.extras?.getString(LETTER).toString()
+    private lateinit var letterId: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            letterId = it.getString(LETTER).toString()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
